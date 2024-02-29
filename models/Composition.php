@@ -30,6 +30,7 @@ class Composition extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['dish_id', 'ingredient_id'], 'required'],
             [['dish_id', 'ingredient_id'], 'integer'],
             [['dish_id'], 'exist', 'skipOnError' => true, 'targetClass' => Dishes::class, 'targetAttribute' => ['dish_id' => 'id']],
             [['ingredient_id'], 'exist', 'skipOnError' => true, 'targetClass' => Ingredients::class, 'targetAttribute' => ['ingredient_id' => 'id']],
