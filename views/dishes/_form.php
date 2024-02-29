@@ -13,7 +13,7 @@ use yii\widgets\ActiveForm;
 <div class="dishes-form">
 
     <?php $form = ActiveForm::begin(); ?>
-    <?php $ingredient = ArrayHelper::map(\app\models\Ingredients::find()->all(), 'id', 'ingredient') ?>
+    <?php $ingredient = ArrayHelper::map(\app\models\Ingredients::find()->all(), 'id', 'ingredient_name_en') ?>
 
     <?= $form->field($model, 'dish_name_en')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'dish_name_ru')->textInput(['maxlength' => true]) ?>
