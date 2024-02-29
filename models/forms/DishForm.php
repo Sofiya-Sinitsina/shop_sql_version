@@ -7,6 +7,7 @@ use app\models\Dishes;
 use yii\base\InvalidConfigException;
 use yii\base\Model;
 use yii\helpers\ArrayHelper;
+use yii\helpers\VarDumper;
 
 class DishForm extends Model
 {
@@ -21,13 +22,12 @@ class DishForm extends Model
 
     public function rules(): array
     {
-        return ([
-            [['dish_name_en', 'dish_name_ru', 'dish_name_kk', 'composition',
-                'dish_price', 'dish_photo', 'type'], 'required'],
-            ['dish_price' => 'number'],
+        return [
+            [['dish_name_en', 'dish_name_ru', 'dish_name_kk', 'composition', 'dish_price', 'dish_photo', 'type'], 'required'],
+            [['dish_price'], 'number'],
+            [['composition'], 'safe'],
             [['dish_name_en','dish_name_ru','dish_name_kk','type'],'string'],
-            ['id', 'integer', 'min' => 1],
-        ]);
+        ];
     }
 
     public function attributeLabels(): array
@@ -78,10 +78,13 @@ class DishForm extends Model
         $ingredientsToSave = array_map(function ($v) {
             return intval($v);
         }, $this->composition);
+//        VarDumper::dump($this->composition);
+//        die;
         $model_composition = Composition::find()->indexBy('id')->andWhere(['dish_id' => $dish->id])->all();
 
         if ($this->composition) {
             $diffs = array_diff($ingredientsToSave, ArrayHelper::getColumn($model_composition, 'ingredient_id'));
+//            VarDumper::dump($diffs); die;
             $diff = array_diff(ArrayHelper::getColumn($model_composition, 'ingredient_id'), $ingredientsToSave);
             if ($diffs) {
                 foreach ($diffs as $ingredient) {
@@ -89,12 +92,10 @@ class DishForm extends Model
                     $Composition = new Composition();
                     $Composition->dish_id = $dish->id;
                     $Composition->ingredient_id = $ingredient;
-                    $Composition->save();
-
-
                     if ($Composition->validate()) {
-                        $Composition->save(false);
+                        $Composition->save();
                     }
+
                 }
             }
             if ($diff) {

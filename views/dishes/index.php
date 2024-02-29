@@ -35,7 +35,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'=> static function(Dishes $model) {
                     $cur_ing =[];
                     foreach ($model->composition as $ingredient) {
-                        $cur_ing[] = $ingredient->ingredient->ingredient_name;
+                        \yii\helpers\VarDumper::dump($ingredient);
+                        $cur_ing[] = $ingredient->ingredient->ingredient_name_en;
                     }
                     return implode(', ', $cur_ing);
                 }],

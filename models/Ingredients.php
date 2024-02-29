@@ -13,6 +13,10 @@ use Yii;
 class Ingredients extends \yii\db\ActiveRecord
 {
     /**
+     * @var mixed|null
+     */
+
+    /**
      * {@inheritdoc}
      */
     public static function tableName()

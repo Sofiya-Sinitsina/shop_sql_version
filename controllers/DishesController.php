@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Dishes;
+use app\models\forms\DishForm;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -77,14 +78,14 @@ class DishesController extends BaseController
      */
     public function actionCreate()
     {
-        $model = new Dishes();
+        $model = new DishForm();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
-            $model->loadDefaultValues();
+            $model->loadData(null);
         }
 
         return $this->render('create', [
