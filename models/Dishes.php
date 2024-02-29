@@ -8,13 +8,18 @@ use Yii;
  * This is the model class for table "dishes".
  *
  * @property int $id
- * @property string $dish_name
+ * @property string $dish_name_en
+ * @property string $dish_name_ru
+ * @property string $dish_name_kk
  * @property int $dish_price
  * @property string|null $dish_photo
  * @property string $type
+ *
+ * @property Composition[] $composition
  */
 class Dishes extends \yii\db\ActiveRecord
 {
+
     /**
      * {@inheritdoc}
      */
@@ -49,6 +54,12 @@ class Dishes extends \yii\db\ActiveRecord
         ];
     }
 
+    public function getComposition(): \yii\db\ActiveQuery
+    {
+        return $this->hasMany(Composition::class, ['dish_id' => 'id']);
+    }
+
+
     /**
      * {@inheritdoc}
      * @return DishesQuery the active query used by this AR class.
@@ -58,7 +69,8 @@ class Dishes extends \yii\db\ActiveRecord
         return new DishesQuery(get_called_class());
     }
 
-    public static function instantiate($row)
+
+    public static function instantiate($row): DrinkDishes|SoupDishes|BakeryDishes|Dishes
     {
         switch ($row['type']) {
             case SoupDishes::TYPE:

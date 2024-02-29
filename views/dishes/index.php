@@ -20,13 +20,25 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a(Yii::t('app', 'Create Dishes'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?= GridView::widget([
+    <?=
+    GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
             'dish_name_en',
+            ['attribute'=> 'composition',
+                'format'=>'raw',
+                'contentOptions'=>['class'=>'text-center align-mode'],
+                'headerOptions'=>['class'=>'text-center align-mode'],
+                'value'=> static function(Dishes $model) {
+                    $cur_ing =[];
+                    foreach ($model->composition as $ingredient) {
+                        $cur_ing[] = $ingredient->ingredient->ingredient_name;
+                    }
+                    return implode(', ', $cur_ing);
+                }],
             'dish_price',
             'dish_photo',
             'type',

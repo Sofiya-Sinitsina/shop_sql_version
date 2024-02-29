@@ -11,12 +11,12 @@ use yii\filters\VerbFilter;
 /**
  * DishesController implements the CRUD actions for Dishes model.
  */
-class DishesController extends Controller
+class DishesController extends BaseController
 {
     /**
      * @inheritDoc
      */
-    public function behaviors()
+    public function behaviors(): array
     {
         return array_merge(
             parent::behaviors(),
@@ -36,7 +36,7 @@ class DishesController extends Controller
      *
      * @return string
      */
-    public function actionIndex()
+    public function actionIndex(): string
     {
         $dataProvider = new ActiveDataProvider([
             'query' => Dishes::find(),
@@ -63,7 +63,7 @@ class DishesController extends Controller
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id)
+    public function actionView($id): string
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
