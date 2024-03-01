@@ -36,7 +36,7 @@ class DishForm extends Model
             'dish_name_en'=>'Name of dish en',
             'dish_name_ru'=>'Name of dish ru',
             'dish_name_kk'=>'Name of dish kz',
-            'composition'=>'Composition',
+            'composition'=>'Состав',
             'dish_price'=>'Price',
             'dish_photo'=>'Photo',
             'type'=>'Type'

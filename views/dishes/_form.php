@@ -19,7 +19,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'dish_name_ru')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'dish_name_kk')->textInput(['maxlength' => true]) ?>
 
-    <?php echo $form->field($model, 'composition')->widget(Select2::classname(), [
+    <?php echo $form->field($model, 'composition')->label(Yii::t('form', 'Состав'))->widget(Select2::classname(), [
         'data' => $ingredient,
         'options' => ['multiple' => true,'placeholder' => 'Choose the ingredient ...'],
         'pluginOptions' => [
@@ -34,7 +34,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'type')->dropDownList(
             [
-                    'soup'=>'soup',
+                    'soup'=>'суп',
                 'drink'=>'drink',
                 'bakery'=>'bakery',
             ]

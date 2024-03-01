@@ -64,14 +64,14 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     <nav id="nav_dark" class="navbar border-bottom border-body text-light" data-bs-theme="dark">
         <div class="container-fluid">
             <form id="search_dark" class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Поиск..." aria-label="Search">
+                <input class="form-control me-2" type="search" placeholder="<?= Yii::t('labels','Поиск...')?>" aria-label="Search">
             </form>
-            <p>Бьюти-бокс месяца стоимостью 2500 руб. всего за 1000 руб.</p>
+            <p><?= Yii::t('labels', 'Быстрые и вкусные перекусы по приемлемым ценам')?></p>
             <a class="navbar-brand" href="<?= Url::to(['site/login'])?>">
-                Войти
+                <?= Yii::t('labels', 'Войти')?>
             </a>
-            <a class="navbar-brand" href="site/login">
-                Выйти
+            <a class="navbar-brand" href="<?= Url::to(['site/login'])?>">
+                <?= Yii::t('labels', 'Выйти')?>
             </a>
 
         </div>
@@ -79,16 +79,19 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 
     <!--второй хэдинг-->
     <nav id="nav_white" class="navbar">
-        <div class="container-fluid">
+        <div class="container-fluid ">
             <?= $this->render('language_list')?>
             <p class="text-start">
-                <a class="navbar-brand" href="<?= Url::to(['subs'])?>">Боксы по подписке</a>
-                <a class="navbar-brand" href="#cont">Контакты</a>
+                <a class="navbar-brand" href="<?= Url::to(['subs'])?>"><?= Yii::t('labels', 'Меню')?></a>
+                <a class="navbar-brand" href="#cont"><?= Yii::t('labels', 'Контакты')?></a>
             </p>
             <a class="navbar-brand" href="<?= Url::to(['index'])?>">
                 <img src="<?= $asset->baseUrl.'/img/ph1.JPG'?>" alt="Bootstrap" width="224" height="76">
             </a>
-            <a class="navbar-brand">Корзина(0)</a>
+            <div class="text-end">
+            <?= $this->render('languages')?>
+            <a class="navbar-brand"><?= Yii::t('labels', 'Корзина')?></a>
+            </div>
 
         </div>
     </nav>
@@ -105,36 +108,34 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 </main>
 
 
-<!--полуфутер-->
-<!--<div id="footer_or" class="text-start row row-cols-1 row-cols-md-3 g-4 align-items-center">-->
-<!--    <div id="f1">-->
-<!--        <h3>Магазин</h3><br>-->
-<!--        <a href="--><?php //= Url::to(['subs'])?><!--">Подписка на боксы</a><br>-->
-<!--        <a href="--><?php //= Url::to(['delivery'])?><!--">Доставка и возврат</a><br>-->
-<!--        <a href="--><?php //= Url::to(['policy'])?><!--">Политика магазина</a><br>-->
-<!--        <a href="--><?php //= Url::to(['policy', '#'=>'sposob'])?><!--">Способы оплаты</a><br>-->
-<!--        <a href="--><?php //= Url::to(['qa'])?><!--">Вопросы и ответы</a><br>-->
-<!--    </div>-->
-<!--    <div id="f2" class="text-center">-->
-<!--        <h2>Коробочки</h2>-->
-<!--        <p>Подпишитесь для обновлений и уведомлениях об ограниченных сериях</p>-->
-<!--        <input type="text" class="form-control" id="specificSizeInputName" placeholder="Эл. почта*">-->
-<!--        <button type="submit" class="btn btn-dark m-3">Sibscribe</button>-->
-<!--        <br><br>-->
-<!--    </div>-->
-<!--    <div id="f3" class="text-start">-->
-<!--        <p><a name="cont"></a></p>-->
-<!--        <h3>Контакты</h3><br>-->
-<!--        <p>ул. Арбат, 1а,  Москва,<br>-->
-<!--            119019, Россия<br>-->
-<!--            info@mysite.ru<br>-->
-<!--            +7 123 456-78-90</p><br>-->
-<!--    </div>-->
-<!--</div>-->
-<!---->
-<!--<!--основной футер-->-->
-<!--<footer class="text-center">Created by Sinitsina Sofiya | --><?php //= $this->render('languages')?><!-- </footer>-->
-<!---->
+полуфутер
+<div id="footer_or" class="text-start row row-cols-1 row-cols-md-3 g-4 align-items-center">
+    <div id="f1">
+        <h3><?= Yii::t('labels','Ресторан')?></h3><br>
+        <a href="<?= Url::to(['site/subs'])?>"><?= Yii::t('labels', 'Меню')?></a><br>
+        <a href="<?= Url::to(['site/delivery'])?>"><?= Yii::t('labels', 'Доставка')?></a><br>
+        <a href="<?= Url::to(['site/qa'])?>"><?= Yii::t('labels', 'Вопросы и ответы')?></a><br>
+    </div>
+    <div id="f2" class="text-center">
+        <h2><?= Yii::t('labels', 'Обновления')?></h2>
+        <p><?= Yii::t('content','Подпишитесь для уведомления об изменении меню и актуальных акциях')?></p>
+        <input type="text" class="form-control" id="specificSizeInputName" placeholder="email*">
+        <button type="submit" class="btn btn-dark m-3"><?= Yii::t('labels', 'Подписаться')?></button>
+        <br><br>
+    </div>
+    <div id="f3" class="text-start">
+        <p><a name="cont"></a></p>
+        <h3><?= Yii::t('labels','Контакты')?></h3><br>
+        <p><?= Yii::t('content','ул. Арбат, 1а,  Москва,')?><br>
+            <?= Yii::t('content','119019, Россия')?><br>
+            info@mysite.ru<br>
+            +7 123 456-78-90</p><br>
+    </div>
+</div>
+
+<!--основной футер-->
+<footer class="text-center"> <?= Yii::t('labels', 'Создано Синициной Софией')?> </footer>
+
 
 <?php $this->endBody() ?>
 </body>

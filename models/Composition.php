@@ -43,9 +43,9 @@ class Composition extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'dish_id' => Yii::t('app', 'Dish ID'),
-            'ingredient_id' => Yii::t('app', 'Ingredient ID'),
+            'id' => 'ID',
+            'dish_id' => Yii::t('form', 'ID блюда'),
+            'ingredient_id' => Yii::t('form', 'ID ингредиента'),
         ];
     }
 

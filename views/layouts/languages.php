@@ -17,9 +17,11 @@ echo Html::a('Ru', array_merge(Yii::$app->request->get(),
 echo '|';
 echo Html::a('Kz', array_merge(Yii::$app->request->get(),
     [
-        Yii::$app->controller->route, 'language' => 'kz'
+        Yii::$app->controller->route, 'language' => 'kk'
     ]
 ));
+
+?>
 
 
 

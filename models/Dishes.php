@@ -34,9 +34,9 @@ class Dishes extends \yii\db\ActiveRecord
     public function rules(): array
     {
         return [
-            [['dish_name_en', 'dish_price', 'type'], 'required'],
+            [['dish_name_en', 'dish_name_ru', 'dish_name_kk', 'dish_price', 'type'], 'required'],
             [['dish_price'], 'integer'],
-            [['dish_name_en',  'dish_photo', 'type'], 'string', 'max' => 255],
+            [['dish_name_en', 'dish_name_ru', 'dish_name_kk',  'dish_photo', 'type'], 'string', 'max' => 255],
         ];
     }
 
@@ -46,11 +46,13 @@ class Dishes extends \yii\db\ActiveRecord
     public function attributeLabels(): array
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'dish_name_en' => Yii::t('app', 'Dish Name'),
-            'dish_price' => Yii::t('app', 'Dish Price'),
-            'dish_photo' => Yii::t('app', 'Dish Photo'),
-            'type' => Yii::t('app', 'Type'),
+            'id' => 'ID',
+            'dish_name_en' => 'Dish name',
+            'dish_name_ru' => 'Название блюда',
+            'dish_name_kk' => 'Тағамның атауы',
+            'dish_price' => Yii::t('form', 'Цена блюда'),
+            'dish_photo' => Yii::t('form', 'Фото блюда'),
+            'type' => Yii::t('form', 'Тип'),
         ];
     }
 
