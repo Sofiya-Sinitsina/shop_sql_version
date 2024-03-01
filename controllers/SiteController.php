@@ -135,10 +135,6 @@ class SiteController extends Controller
         return $this->render('qa');
     }
 
-    public function actionPolicy()
-    {
-        return $this->render('policy');
-    }
 
     public function actionDelivery()
     {

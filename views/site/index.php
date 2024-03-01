@@ -87,3 +87,4 @@ $this->title = 'Boxes_sql';
     <button type="button" class="btn btn-dark"><a href="<?= Url::to(['subs'])?>" id="first_page_buttons">Заказать коробочки</a></button>
     <br><br><br>
 </div>
+

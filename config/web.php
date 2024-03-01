@@ -57,10 +57,19 @@ $config = [
 
         'i18n' => [
             'translations' => [
-                'common*' => [
+                'labels*' => [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@app/messages',
                 ],
+                'form*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                ],
+                'content*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                ],
+
             ],
         ],
 

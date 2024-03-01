@@ -28,14 +28,14 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'dish_name_en',
-            ['attribute'=> 'composition',
+            ['attribute'=> Yii::t('form','Состав'),
                 'format'=>'raw',
                 'contentOptions'=>['class'=>'text-center align-mode'],
                 'headerOptions'=>['class'=>'text-center align-mode'],
                 'value'=> static function(Dishes $model) {
                     $cur_ing =[];
                     foreach ($model->composition as $ingredient) {
-                        \yii\helpers\VarDumper::dump($ingredient);
+//                        \yii\helpers\VarDumper::dump($ingredient);
                         $cur_ing[] = $ingredient->ingredient->ingredient_name_en;
                     }
                     return implode(', ', $cur_ing);
