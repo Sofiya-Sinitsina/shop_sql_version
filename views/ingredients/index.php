@@ -8,6 +8,7 @@ use yii\grid\GridView;
 
 /** @var yii\web\View $this */
 /** @var yii\data\ActiveDataProvider $dataProvider */
+/** @var string $suffix */
 
 $this->title = Yii::t('app', 'Ingredients');
 $this->params['breadcrumbs'][] = $this->title;
@@ -27,7 +28,11 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'ingredient_name',
+            [
+                'attribute'=>'ingredient_name_'.$suffix,
+                'format'=>'raw',
+
+            ],
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Ingredients $model, $key, $index, $column) {

@@ -11,7 +11,7 @@ use yii\filters\VerbFilter;
 /**
  * IngredientsController implements the CRUD actions for Ingredients model.
  */
-class IngredientsController extends Controller
+class IngredientsController extends BaseController
 {
     /**
      * @inheritDoc
@@ -54,6 +54,7 @@ class IngredientsController extends Controller
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
+            'suffix'=>$this->suffix,
         ]);
     }
 
@@ -67,6 +68,7 @@ class IngredientsController extends Controller
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'suffix'=>$this->suffix,
         ]);
     }
 

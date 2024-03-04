@@ -11,7 +11,7 @@ use yii\filters\VerbFilter;
 /**
  * SoupDishesController implements the CRUD actions for SoupDishes model.
  */
-class SoupDishesController extends Controller
+class SoupDishesController extends BaseController
 {
     /**
      * @inheritDoc

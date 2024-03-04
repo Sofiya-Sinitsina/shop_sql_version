@@ -12,7 +12,9 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'ingredient_name')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'ingredient_name_en')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'ingredient_name_ru')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'ingredient_name_kk')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>

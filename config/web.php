@@ -5,8 +5,8 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'basic',
-    'language' => 'ru',
-    'sourceLanguage' => 'ru',
+    'language' => 'ru-Ru',
+    'sourceLanguage' => 'ru-Ru',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
@@ -48,8 +48,11 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'class' => 'codemix\localeurls\UrlManager',
-            'languages' => ['en', 'ru', 'kz'],
+            'class'=>'codemix\localeurls\UrlManager',
+            'languages'=>[
+                'en'=>'en-US',
+                'ru'=>'ru-RU',
+                'kk'=>'kk-KZ'],
             'enableDefaultLanguageUrlCode' => true,
             'rules' => [
             ],

@@ -11,7 +11,7 @@ use yii\filters\VerbFilter;
 /**
  * BakeryDishesController implements the CRUD actions for BakeryDishes model.
  */
-class BakeryDishesController extends Controller
+class BakeryDishesController extends BaseController
 {
     /**
      * @inheritDoc
