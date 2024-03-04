@@ -8,7 +8,9 @@ use Yii;
  * This is the model class for table "ingredients".
  *
  * @property int $id
- * @property string $ingredient_name
+ * @property string $ingredient_name_en
+ * @property string $ingredient_name_ru
+ * @property string $ingredient_name_kk
  */
 class Ingredients extends \yii\db\ActiveRecord
 {
@@ -19,7 +21,7 @@ class Ingredients extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
-    public static function tableName()
+    public static function tableName(): string
     {
         return 'ingredients';
     }
@@ -27,18 +29,18 @@ class Ingredients extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            [['ingredient_name'], 'required'],
-            [['ingredient_name'], 'string', 'max' => 255],
+            [['ingredient_name_en', 'ingredient_name_ru', 'ingredient_name_kk'], 'required'],
+            [['ingredient_name_en', 'ingredient_name_ru', 'ingredient_name_kk'], 'string', 'max' => 255],
         ];
     }
 
     /**
      * {@inheritdoc}
      */
-    public function attributeLabels()
+    public function attributeLabels(): array
     {
         return [
             'id' => Yii::t('app', 'ID'),
@@ -50,7 +52,7 @@ class Ingredients extends \yii\db\ActiveRecord
      * {@inheritdoc}
      * @return IngredientsQuery the active query used by this AR class.
      */
-    public static function find()
+    public static function find(): IngredientsQuery
     {
         return new IngredientsQuery(get_called_class());
     }

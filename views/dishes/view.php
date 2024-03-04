@@ -5,6 +5,7 @@ use yii\widgets\DetailView;
 
 /** @var yii\web\View $this */
 /** @var app\models\Dishes $model */
+/** @var string $suffix  */
 
 $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Dishes'), 'url' => ['index']];
@@ -30,9 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'dish_name_en',
-            'dish_name_ru',
-            'dish_name_kz',
+            'dish_name_'.$suffix,
             'dish_price',
             'dish_photo',
             'type',
