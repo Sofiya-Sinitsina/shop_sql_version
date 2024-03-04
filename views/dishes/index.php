@@ -11,7 +11,7 @@ use yii\helpers\VarDumper;
 /** @var yii\data\ActiveDataProvider $dataProvider */
 /** @var string $suffix  */
 
-$this->title = Yii::t('app', 'Dishes');
+$this->title = Yii::t('app', 'Блюда');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="dishes-index">
@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Dishes'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Добавить блюдо'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?=

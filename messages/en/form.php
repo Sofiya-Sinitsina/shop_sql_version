@@ -7,6 +7,6 @@ return [
     'Состав'=>'Composition',
     'ID блюда'=>'Dish ID',
     'ID ингредиента'=>'Ingredient ID',
-    ''=>'',
-    ''=>'',
+    'Стоимость'=>'Price',
+    'Фото'=>'Photo',
 ];
