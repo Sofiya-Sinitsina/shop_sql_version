@@ -15,9 +15,9 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
     <?php $ingredient = ArrayHelper::map(\app\models\Ingredients::find()->all(), 'id', 'ingredient_name_en') ?>
 
-    <?= $form->field($model, 'dish_name_en')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'dish_name_ru')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'dish_name_kk')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'dish_name_en')->label('Dish name')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'dish_name_ru')->label('Название блюда')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'dish_name_kk')->label('Тағамның атауы')->textInput(['maxlength' => true]) ?>
 
     <?php echo $form->field($model, 'composition')->label(Yii::t('form', 'Состав'))->widget(Select2::classname(), [
         'data' => $ingredient,
@@ -28,20 +28,20 @@ use yii\widgets\ActiveForm;
 
     ]);?>
 
-    <?= $form->field($model, 'dish_price')->textInput() ?>
+    <?= $form->field($model, 'dish_price')->label(Yii::t('form', 'Стоимость'))->textInput() ?>
 
-    <?= $form->field($model, 'dish_photo')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'dish_photo')->label(Yii::t('form', 'Фото'))->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'type')->dropDownList(
+    <?= $form->field($model, 'type')->label(Yii::t('form', 'Тип'))->dropDownList(
             [
-                    'soup'=>'суп',
-                'drink'=>'drink',
-                'bakery'=>'bakery',
+                    'soup'=>Yii::t('content', 'суп'),
+                'drink'=>Yii::t('content', 'напиток'),
+                'bakery'=>Yii::t('content', 'выпечка'),
             ]
     ) ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton(Yii::t('app', 'Сохранить'), ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
