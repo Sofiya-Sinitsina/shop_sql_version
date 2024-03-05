@@ -4,6 +4,7 @@ use yii\helpers\Html;
 
 /** @var yii\web\View $this */
 /** @var app\models\Dishes $model */
+/** @var string $suffix */
 
 $this->title = Yii::t('app', 'Добавить блюдо');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Блюда'), 'url' => ['index']];
@@ -15,6 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
         'model' => $model,
+        'suffix'=>$suffix,
     ]) ?>
 
 </div>

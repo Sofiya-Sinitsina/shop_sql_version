@@ -38,13 +38,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format'=>'raw',
                 'contentOptions'=>['class'=>'text-center align-mode'],
                 'headerOptions'=>['class'=>'text-center align-mode'],
-                'value'=> static function(Dishes $model) {
+                'value'=> static function(Dishes $model) use ($suffix) {
                     $cur_ing =[];
                     foreach ($model->composition as $ingredient) {
 //                        \yii\helpers\VarDumper::dump($ingredient);
-                        $cur_ing[] = $ingredient->ingredient->ingredient_name_en;
+                        $cur_ing['en'][] = $ingredient->ingredient->ingredient_name_en;
+                        $cur_ing['ru'][] = $ingredient->ingredient->ingredient_name_ru;
+                        $cur_ing['kk'][] = $ingredient->ingredient->ingredient_name_kk;
                     }
-                    return implode(', ', $cur_ing);
+
+                    return implode(', ', $cur_ing[$suffix]??[]);
                 }],
             'dish_price',
             'dish_photo',

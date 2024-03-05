@@ -91,6 +91,7 @@ class IngredientsController extends BaseController
 
         return $this->render('create', [
             'model' => $model,
+            'suffix'=>$this->suffix,
         ]);
     }
 
@@ -111,6 +112,7 @@ class IngredientsController extends BaseController
 
         return $this->render('update', [
             'model' => $model,
+            'suffix'=>$this->suffix,
         ]);
     }
 

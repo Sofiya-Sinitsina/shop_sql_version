@@ -70,7 +70,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
             <a class="navbar-brand" href="<?= Url::to(['site/login'])?>">
                 <?= Yii::t('labels', 'Войти')?>
             </a>
-            <a class="navbar-brand" href="<?= Url::to(['site/login'])?>">
+            <a class="navbar-brand" href="<?= Url::to(['site/logout'])?>">
                 <?= Yii::t('labels', 'Выйти')?>
             </a>
 
