@@ -8,12 +8,13 @@ use yii\widgets\ActiveForm;
 /** @var yii\web\View $this */
 /** @var app\models\Dishes $model */
 /** @var yii\widgets\ActiveForm $form */
+/** @var string $suffix */
 ?>
 
 <div class="dishes-form">
 
     <?php $form = ActiveForm::begin(); ?>
-    <?php $ingredient = ArrayHelper::map(\app\models\Ingredients::find()->all(), 'id', 'ingredient_name_en') ?>
+    <?php $ingredient = ArrayHelper::map(\app\models\Ingredients::find()->all(), 'id', 'ingredient_name_'.$suffix) ?>
 
     <?= $form->field($model, 'dish_name_en')->label('Dish name')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'dish_name_ru')->label('Название блюда')->textInput(['maxlength' => true]) ?>
@@ -21,7 +22,7 @@ use yii\widgets\ActiveForm;
 
     <?php echo $form->field($model, 'composition')->label(Yii::t('form', 'Состав'))->widget(Select2::classname(), [
         'data' => $ingredient,
-        'options' => ['multiple' => true,'placeholder' => 'Choose the ingredient ...'],
+        'options' => ['multiple' => true,'placeholder' => Yii::t('form', 'Выберите ингредиент ...')],
         'pluginOptions' => [
             'allowClear' => true
         ],

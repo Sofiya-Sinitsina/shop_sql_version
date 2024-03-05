@@ -118,6 +118,7 @@ class DishesController extends BaseController
 
         return $this->render('create', [
             'model' => $model,
+            'suffix'=>$this->suffix,
         ]);
     }
 
@@ -148,6 +149,7 @@ class DishesController extends BaseController
 
         return $this->render('create', [
             'model' => $model,
+            'suffix'=>$this->suffix,
         ]);
     }
 

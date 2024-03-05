@@ -9,4 +9,5 @@ return [
     'ID ингредиента'=>'Ingredient ID',
     'Стоимость'=>'Price',
     'Фото'=>'Photo',
+    'Выберите ингредиент ...'=>'Choose the ingredient ...',
 ];
