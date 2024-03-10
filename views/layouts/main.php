@@ -86,7 +86,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                 <a class="navbar-brand" href="#cont"><?= Yii::t('labels', 'Контакты')?></a>
             </p>
             <a class="navbar-brand" href="<?= Url::to(['index'])?>">
-                <img src="<?= $asset->baseUrl.'/img/ph1.JPG'?>" alt="Bootstrap" width="224" height="76">
+                <img src="<?= $asset->baseUrl.'/img/ph1.JPG'?>" alt="Bootstrap" height="76">
             </a>
             <div class="text-end">
             <?= $this->render('languages')?>
