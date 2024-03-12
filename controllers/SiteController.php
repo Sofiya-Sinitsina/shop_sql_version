@@ -3,11 +3,13 @@
 namespace app\controllers;
 
 use app\models\ContactForm;
+use app\models\Dishes;
 use app\models\LoginForm;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
+use yii\data\ActiveDataProvider;
 
 class SiteController extends BaseController
 {
@@ -127,7 +129,13 @@ class SiteController extends BaseController
 
     public function actionSubs()
     {
-        return $this->render('subs');
+        $provider = new ActiveDataProvider([
+            'query' => Dishes::find(),
+            'pagination' => [
+                'pageSize' => 10
+            ]
+        ]);
+        return $this->render('subs', ['provider' => $provider]);
     }
 
     public function actionQa()
