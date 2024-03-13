@@ -129,13 +129,15 @@ class SiteController extends BaseController
 
     public function actionSubs()
     {
+
         $provider = new ActiveDataProvider([
             'query' => Dishes::find(),
             'pagination' => [
                 'pageSize' => 10
             ]
         ]);
-        return $this->render('subs', ['provider' => $provider]);
+
+        return $this->render('subs', ['provider' => $provider, 'suffix'=>$this->suffix,]);
     }
 
     public function actionQa()
