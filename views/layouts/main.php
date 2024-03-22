@@ -67,12 +67,28 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                 <input class="form-control me-2" type="search" placeholder="<?= Yii::t('labels','Поиск...')?>" aria-label="Search">
             </form>
             <p><?= Yii::t('labels', 'Быстрые и вкусные перекусы по приемлемым ценам')?></p>
-            <a class="navbar-brand" href="<?= Url::to(['site/login'])?>">
-                <?= Yii::t('labels', 'Войти')?>
-            </a>
-            <a class="navbar-brand" href="<?= Url::to(['site/logout'])?>">
-                <?= Yii::t('labels', 'Выйти')?>
-            </a>
+<!--            <a class="navbar-brand" href="--><?php //= Url::to(['site/login'])?><!--">-->
+<!--                --><?php //= Yii::t('labels', 'Войти')?>
+<!--            </a>-->
+<!---->
+<!---->
+<!--            --><?php //= isset(Yii::$app->user->identity->username) ? Yii::$app->user->identity->username : ''?>
+<!---->
+<!---->
+<!--            <a class="navbar-brand" href="--><?php //= Url::to(['site/logout'])?><!--">-->
+<!--                --><?php //= Yii::t('labels', 'Выйти')?>
+<!--            </a>-->
+
+            <?php if(Yii::$app->user->isGuest): ?>
+                <a class="navbar-brand" href="<?= Url::to(['site/login'])?>">
+                    <?= Yii::t('labels', 'Войти')?>
+                </a>
+            <?php else: ?>
+                <span><?= Yii::$app->user->identity->username ?></span>
+                <a class="navbar-brand" href="<?= Url::to(['site/logout'])?>">
+                    <?= Yii::t('labels', 'Выйти')?>
+                </a>
+            <?php endif; ?>
 
         </div>
     </nav>
