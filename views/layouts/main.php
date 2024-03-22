@@ -67,22 +67,9 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                 <input class="form-control me-2" type="search" placeholder="<?= Yii::t('labels','Поиск...')?>" aria-label="Search">
             </form>
             <p><?= Yii::t('labels', 'Быстрые и вкусные перекусы по приемлемым ценам')?></p>
-<!--            <a class="navbar-brand" href="--><?php //= Url::to(['site/login'])?><!--">-->
-<!--                --><?php //= Yii::t('labels', 'Войти')?>
-<!--            </a>-->
-<!---->
-<!---->
-<!--            --><?php //= isset(Yii::$app->user->identity->username) ? Yii::$app->user->identity->username : ''?>
-<!---->
-<!---->
-<!--            <a class="navbar-brand" href="--><?php //= Url::to(['site/logout'])?><!--">-->
-<!--                --><?php //= Yii::t('labels', 'Выйти')?>
-<!--            </a>-->
 
             <?php if(Yii::$app->user->isGuest): ?>
-                <a class="navbar-brand" href="<?= Url::to(['site/login'])?>">
-                    <?= Yii::t('labels', 'Войти')?>
-                </a>
+                <?= Html::button(Yii::t('labels', 'Войти'), ['value' => Url::to(['site/login', 'id'=>'login-form']), 'title' => 'Login', 'class' => 'showModalButton btn navbar-brand']); ?>
             <?php else: ?>
                 <span><?= Yii::$app->user->identity->username ?></span>
                 <a class="navbar-brand" href="<?= Url::to(['site/logout'])?>">
@@ -152,8 +139,23 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 <!--основной футер-->
 <footer class="text-center"> <?= Yii::t('labels', 'Создано Синициной Софией')?> </footer>
 
+<?php
+yii\bootstrap5\Modal::begin([
+    'headerOptions' => ['id' => 'modalHeader'],
+    'id' => 'modal',
+    'size' => 'modal-lg',
+    //keeps from closing modal with esc key or by clicking out of the modal.
+    // user must click cancel or X to close
+    'clientOptions' => ['backdrop' => 'static', 'keyboard' => FALSE]
+]);
+echo "<div id='modalContent'></div>";
+yii\bootstrap5\Modal::end();
+?>
+
 
 <?php $this->endBody() ?>
 </body>
 </html>
 <?php $this->endPage() ?>
+
+

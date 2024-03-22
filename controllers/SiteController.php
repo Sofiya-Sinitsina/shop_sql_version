@@ -84,7 +84,7 @@ class SiteController extends BaseController
         }
 
         $model->password = '';
-        return $this->render('login', [
+        return $this->renderAjax('login', [
             'model' => $model,
         ]);
     }
