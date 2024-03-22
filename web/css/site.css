@@ -46,7 +46,9 @@ a {
     margin-left: 7%;
 }
 
-
+#pagination {
+    margin-left: 45%;
+}
 
 /*main > .container {*/
 /*    padding: 70px 15px 20px;*/

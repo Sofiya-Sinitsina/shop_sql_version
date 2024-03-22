@@ -10,4 +10,6 @@ return [
     'Стоимость'=>'Price',
     'Фото'=>'Photo',
     'Выберите ингредиент ...'=>'Choose the ingredient ...',
+    'Имя пользователя'=>'Username',
+    'Пароль'=>'Password'
 ];
