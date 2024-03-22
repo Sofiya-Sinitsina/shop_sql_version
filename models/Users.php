@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\base\Exception;
 use yii\base\NotSupportedException;
 use yii\web\IdentityInterface;
 
@@ -129,5 +130,21 @@ class Users extends \yii\db\ActiveRecord implements IdentityInterface
     public function getId(): int
     {
         return $this->id;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function generateAuthKey(): void
+    {
+        $this->auth_key = Yii::$app->security->generateRandomString();
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function setPassword($password): void
+    {
+        $this->password = Yii::$app->security->generatePasswordHash($password);
     }
 }

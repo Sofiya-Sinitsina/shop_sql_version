@@ -2,10 +2,9 @@
 
 use app\models\Dishes;
 use app\widgets\MyDetailView;
-use app\widgets\MyLinkPager;
+use yii\bootstrap5\LinkPager;
 use yii\data\ActiveDataProvider;
-use yii\helpers\VarDumper;
-use yii\widgets\LinkPager;
+use yii\helpers\Url;
 
 
 $this->title = 'Подписка';
@@ -18,12 +17,18 @@ $this->title = 'Подписка';
 ?>
 
 <div class="container text-center">
+    <br>
+    <a class="btn btn-outline-dark" href="<?= Url::to(['subs'])?>"><?= Yii::t('labels', 'все')?></a>
+    <a class="btn btn-outline-dark" href="<?= Url::to(['subs', 'type' => 'soup'])?>"><?= Yii::t('labels', 'супы')?></a>
+    <a class="btn btn-outline-dark" href="<?= Url::to(['subs', 'type' => 'drink'])?>"><?= Yii::t('labels', 'напитки')?></a>
+    <a class="btn btn-outline-dark" href="<?= Url::to(['subs', 'type' => 'bakery'])?>"><?= Yii::t('labels', 'выпечка')?></a>
+    <br><br>
     <?php $models = $provider->getModels(); ?>
     <?php if ($models) { ?>
         <div  class="row row-cols-2">
             <?php $i=1; foreach ($models as $model) { ?>
                 <div style="width: 50%" class="col">
-                    <img src="<?= $model->dish_photo?>" class="rounded mx-auto d-block" alt="photo" height="300"> <br>
+                    <img src="<?= $model->dish_photo?>" class="rounded mx-auto d-block" alt="photo" height="300" width="400"> <br>
                     <h4><?= $model->{'dish_name_'.$suffix} ?> <br></h4>
                     <?=
                     MyDetailView::widget([
@@ -57,7 +62,7 @@ $this->title = 'Подписка';
     <?php } ?>
 </div>
 
-<div>
+<div id="pagination">
 <?= LinkPager::widget([
     'pagination' => $provider->pagination,
 ]) ?>

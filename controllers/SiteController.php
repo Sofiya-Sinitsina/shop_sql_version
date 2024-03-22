@@ -4,8 +4,10 @@ namespace app\controllers;
 
 use app\models\ContactForm;
 use app\models\Dishes;
+use app\models\forms\SingUpForm;
 use app\models\LoginForm;
 use Yii;
+use yii\base\Exception;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
@@ -131,7 +133,7 @@ class SiteController extends BaseController
     {
 
         $provider = new ActiveDataProvider([
-            'query' => Dishes::find(),
+            'query' => Yii::$app->request->get('type') ? Dishes::find()->andWhere(['type' => Yii::$app->request->get('type')]) : Dishes::find(),
             'pagination' => [
                 'pageSize' => 10
             ]
@@ -151,15 +153,41 @@ class SiteController extends BaseController
         return $this->render('delivery');
     }
 
-//    public function actionTest()
-//    {
-//        $dishes = Dishes::find()->all();
-//        foreach ($dishes as $dish) {
-//            echo "$dish->id $dish->dish_name " . get_class($dish) . "<br />";
-//        }
-//
-//// finding any sport car
-//        $soupDishes = SoupDishes::find()->limit(1)->one();
-//        echo "$soupDishes->id $soupDishes->dish_name " . get_class($soupDishes) . "<br />";
-//    }
-}
+    /**
+     * @throws Exception
+     */
+    public function actionSing(): Response|string
+    {
+        $model = new SingUpForm();
+
+        if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->signup()) {
+                if (Yii::$app->getUser()->login($user)) {
+                    return $this->goHome();
+                }
+            }
+        }
+
+        return $this->render('sing', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionSoupMenu() {
+
+        $provider = new ActiveDataProvider([
+            'query' => Dishes::find(),
+            'pagination' => [
+                'pageSize' => 10
+            ]
+        ]);
+
+        $model = Dishes::find()->where(['type' => 'soup'])->all();
+
+        return $this->render('subs', [
+            'model' => $model,
+            'provider' => $provider,
+            'suffix'=>$this->suffix,
+        ]);
+    }
+    }
