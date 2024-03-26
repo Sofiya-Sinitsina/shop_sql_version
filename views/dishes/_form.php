@@ -1,5 +1,6 @@
 <?php
 
+use app\models\components\Enum;
 use kartik\select2\Select2;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -35,9 +36,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'type')->label(Yii::t('form', 'Тип'))->dropDownList(
             [
-                    'soup'=>Yii::t('content', 'суп'),
-                'drink'=>Yii::t('content', 'напиток'),
-                'bakery'=>Yii::t('content', 'выпечка'),
+                    Enum::SOUP=>Yii::t('content', 'суп'),
+                Enum::DRINK=>Yii::t('content', 'напиток'),
+                Enum::BAKERY=>Yii::t('content', 'выпечка'),
             ]
     ) ?>
 

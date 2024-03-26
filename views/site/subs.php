@@ -1,5 +1,6 @@
 <?php
 
+use app\models\components\Enum;
 use app\models\Dishes;
 use app\widgets\MyDetailView;
 use yii\bootstrap5\LinkPager;
@@ -19,9 +20,9 @@ $this->title = 'Подписка';
 <div class="container text-center">
     <br>
     <a class="btn btn-outline-dark" href="<?= Url::to(['subs'])?>"><?= Yii::t('labels', 'все')?></a>
-    <a class="btn btn-outline-dark" href="<?= Url::to(['subs', 'type' => 'soup'])?>"><?= Yii::t('labels', 'супы')?></a>
-    <a class="btn btn-outline-dark" href="<?= Url::to(['subs', 'type' => 'drink'])?>"><?= Yii::t('labels', 'напитки')?></a>
-    <a class="btn btn-outline-dark" href="<?= Url::to(['subs', 'type' => 'bakery'])?>"><?= Yii::t('labels', 'выпечка')?></a>
+    <a class="btn btn-outline-dark" href="<?= Url::to(['subs', 'type' => Enum::SOUP])?>"><?= Yii::t('labels', 'супы')?></a>
+    <a class="btn btn-outline-dark" href="<?= Url::to(['subs', 'type' => Enum::BAKERY])?>"><?= Yii::t('labels', 'напитки')?></a>
+    <a class="btn btn-outline-dark" href="<?= Url::to(['subs', 'type' => Enum::DRINK])?>"><?= Yii::t('labels', 'выпечка')?></a>
     <br><br>
     <?php $models = $provider->getModels(); ?>
     <?php if ($models) { ?>
