@@ -8,6 +8,7 @@
 
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Html;
+use yii\helpers\Url;
 
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -39,12 +40,14 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="form-group">
                 <div>
                     <?= Html::submitButton(Yii::t('labels','Войти'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Х</button>
+
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
 
             <?php ActiveForm::end(); ?>
 
         </div>
+        <?= Html::button(Yii::t('labels', 'Зарегистрироваться'), ['value' => Url::to(['site/sing', 'id'=>'SingUpForm']), 'title' => 'Sn', 'class' => 'showModalButton btn navbar-brand']); ?>
     </div>
 </div>
