@@ -7,8 +7,6 @@ use app\assets\AppAsset;
 use app\widgets\Alert;
 use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
-use yii\bootstrap5\Nav;
-use yii\bootstrap5\NavBar;
 use yii\helpers\Url;
 
 AppAsset::register($this);
@@ -63,9 +61,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     <!--первый хэдинг-->
     <nav id="nav_dark" class="navbar border-bottom border-body text-light" data-bs-theme="dark">
         <div class="container-fluid">
-            <form id="search_dark" class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="<?= Yii::t('labels','Поиск...')?>" aria-label="Search">
-            </form>
+            <?= $this->render('language_list')?>
+
             <p><?= Yii::t('labels', 'Быстрые и вкусные перекусы по приемлемым ценам')?></p>
 
             <?php if(Yii::$app->user->isGuest): ?>
@@ -83,7 +80,6 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     <!--второй хэдинг-->
     <nav id="nav_white" class="navbar">
         <div class="container-fluid ">
-            <?= $this->render('language_list')?>
             <p class="text-start">
                 <a class="navbar-brand" href="<?= Url::to(['subs'])?>"><?= Yii::t('labels', 'Меню')?></a>
                 <a class="navbar-brand" href="#cont"><?= Yii::t('labels', 'Контакты')?></a>
@@ -92,7 +88,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                 <img src="<?= $asset->baseUrl.'/img/ph1.JPG'?>" alt="Bootstrap" height="76">
             </a>
             <div class="text-end">
-            <?= $this->render('languages')?>
+<!--            --><?php //= $this->render('languages')?>
             <a class="navbar-brand"><?= Yii::t('labels', 'Корзина')?></a>
             </div>
 
@@ -149,6 +145,7 @@ yii\bootstrap5\Modal::begin([
     'clientOptions' => ['backdrop' => 'static', 'keyboard' => FALSE]
 ]);
 echo "<div id='modalContent'></div>";
+//echo Html::button(Yii::t('labels', 'Закрыть', ['class'=>'btn btn-danger', 'data'=>['dismiss'=>'modal']]));
 yii\bootstrap5\Modal::end();
 ?>
 

@@ -21,8 +21,8 @@ $this->title = 'Подписка';
     <br>
     <a class="btn btn-outline-dark" href="<?= Url::to(['subs'])?>"><?= Yii::t('labels', 'все')?></a>
     <a class="btn btn-outline-dark" href="<?= Url::to(['subs', 'type' => Enum::SOUP])?>"><?= Yii::t('labels', 'супы')?></a>
-    <a class="btn btn-outline-dark" href="<?= Url::to(['subs', 'type' => Enum::BAKERY])?>"><?= Yii::t('labels', 'напитки')?></a>
-    <a class="btn btn-outline-dark" href="<?= Url::to(['subs', 'type' => Enum::DRINK])?>"><?= Yii::t('labels', 'выпечка')?></a>
+    <a class="btn btn-outline-dark" href="<?= Url::to(['subs', 'type' => Enum::DRINK])?>"><?= Yii::t('labels', 'напитки')?></a>
+    <a class="btn btn-outline-dark" href="<?= Url::to(['subs', 'type' => Enum::BAKERY])?>"><?= Yii::t('labels', 'выпечка')?></a>
     <br><br>
     <?php $models = $provider->getModels(); ?>
     <?php if ($models) { ?>

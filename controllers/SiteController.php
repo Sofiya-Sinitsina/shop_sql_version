@@ -168,7 +168,7 @@ class SiteController extends BaseController
             }
         }
 
-        return $this->render('sing', [
+        return $this->renderAjax('sing', [
             'model' => $model,
         ]);
     }

@@ -15,3 +15,7 @@ $(function(){
         $('#main-content').load($(this).attr('value'));
     });
 });
+
+// $('.btn-danger').on('click', function() {
+//     $('#modal').modal('hide');
+// });
