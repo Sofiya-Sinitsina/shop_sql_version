@@ -66,7 +66,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
             <p><?= Yii::t('labels', 'Быстрые и вкусные перекусы по приемлемым ценам')?></p>
 
             <?php if(Yii::$app->user->isGuest): ?>
-                <?= Html::button(Yii::t('labels', 'Войти'), ['value' => Url::to(['site/login', 'id'=>'login-form']), 'title' => 'Login', 'class' => 'showModalButton btn navbar-brand']); ?>
+                <?= Html::button(Yii::t('labels', 'Войти'), ['value' => Url::to(['site/login', 'id'=>'login-form']), 'title' => Yii::t('labels', 'Войти'), 'class' => 'showModalButton btn navbar-brand']); ?>
             <?php else: ?>
                 <span><?= Yii::$app->user->identity->username ?></span>
                 <a class="navbar-brand" href="<?= Url::to(['site/logout'])?>">
@@ -81,10 +81,10 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     <nav id="nav_white" class="navbar">
         <div class="container-fluid ">
             <p class="text-start">
-                <a class="navbar-brand" href="<?= Url::to(['subs'])?>"><?= Yii::t('labels', 'Меню')?></a>
+                <a class="navbar-brand" href="<?= Url::to(['site/subs'])?>"><?= Yii::t('labels', 'Меню')?></a>
                 <a class="navbar-brand" href="#cont"><?= Yii::t('labels', 'Контакты')?></a>
             </p>
-            <a class="navbar-brand" href="<?= Url::to(['index'])?>">
+            <a class="navbar-brand" href="<?= Url::to(['site/index'])?>">
                 <img src="<?= $asset->baseUrl.'/img/ph1.JPG'?>" alt="Bootstrap" height="76">
             </a>
             <div class="text-end">
