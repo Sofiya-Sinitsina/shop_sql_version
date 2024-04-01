@@ -41,13 +41,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div>
                     <?= Html::submitButton(Yii::t('labels','Войти'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
 
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><?= Yii::t('labels', 'Закрыть')?></button>
                 </div>
             </div>
 
             <?php ActiveForm::end(); ?>
 
         </div>
-        <?= Html::button(Yii::t('labels', 'Зарегистрироваться'), ['value' => Url::to(['site/sing', 'id'=>'SingUpForm']), 'title' => 'Sn', 'class' => 'showModalButton btn navbar-brand']); ?>
+        <?= Html::button(Yii::t('labels', 'Зарегистрироваться'), ['value' => Url::to(['site/sing', 'id'=>'SingUpForm']), 'title' => Yii::t('labels', 'Зарегистрироваться'), 'class' => 'showModalButton btn navbar-brand']); ?>
     </div>
 </div>
