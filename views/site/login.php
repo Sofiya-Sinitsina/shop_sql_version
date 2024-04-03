@@ -37,17 +37,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'template' => "<div class=\"custom-control custom-checkbox\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>",
             ]) ?>
 
-            <div class="form-group">
+            <div class="form-group text-center">
                 <div>
                     <?= Html::submitButton(Yii::t('labels','Войти'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><?= Yii::t('labels', 'Закрыть')?></button>
+                    <?= Html::button(Yii::t('labels', 'Зарегистрироваться'), ['value' => Url::to(['site/sing', 'id'=>'SingUpForm']), 'title' => Yii::t('labels', 'Зарегистрироваться'), 'class' => 'showModalButton btn navbar-brand']); ?>
                 </div>
             </div>
 
             <?php ActiveForm::end(); ?>
 
-        </div>
-        <?= Html::button(Yii::t('labels', 'Зарегистрироваться'), ['value' => Url::to(['site/sing', 'id'=>'SingUpForm']), 'title' => Yii::t('labels', 'Зарегистрироваться'), 'class' => 'showModalButton btn navbar-brand']); ?>
-    </div>
 </div>

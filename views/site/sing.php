@@ -28,7 +28,6 @@ use yii\widgets\ActiveForm;
     <div class="form-group text-center">
         <div>
             <?= Html::submitButton(Yii::t('labels','Зарегистрироваться'), ['class' => 'btn btn-primary', 'name' => 'sing-up-button'])?>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><?= Yii::t('labels', 'Закрыть')?></button>
         </div>
     </div>
 
