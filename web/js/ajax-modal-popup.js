@@ -4,7 +4,7 @@ $(function(){
             $('#modal').modal('show')
                 .find('#modalContent')
                 .load($(this).attr('value'));
-            document.getElementById('modalHeader').innerHTML = '<h4>' + $(this).attr('title') + '</h4>';
+            document.getElementById('modalHeader').innerHTML = '<h4>' + $(this).attr('title') + '</h4>' + '<button type="button" class="btn btn-light" data-bs-dismiss="modal">' + '✕' + '</button>';
     });
 });
 
