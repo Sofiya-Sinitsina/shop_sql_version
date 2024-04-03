@@ -5,6 +5,7 @@ use app\models\Dishes;
 use app\widgets\MyDetailView;
 use yii\bootstrap5\LinkPager;
 use yii\data\ActiveDataProvider;
+use yii\helpers\Html;
 use yii\helpers\Url;
 
 
@@ -51,7 +52,10 @@ $this->title = 'Подписка';
                             ],
                     ]); ?>
                     <?= $model->dish_price.' тг' ?> <br>
+                <?php if(!Yii::$app->user->isGuest): ?>
                     <button type="button" class="btn btn-primary"><?= Yii::t('labels', 'Добавить в корзину')?></button><br><br>
+                <?php endif; ?>
+                    <br>
                 </div>
                 <?php $i++; } ?>
 
