@@ -153,6 +153,11 @@ class SiteController extends BaseController
         return $this->render('delivery');
     }
 
+    public function actionAdmin()
+    {
+        return $this->render('admin');
+    }
+
     /**
      * @throws Exception
      */

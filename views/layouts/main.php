@@ -8,6 +8,7 @@ use app\widgets\Alert;
 use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
 use yii\helpers\Url;
+use yii\web\ForbiddenHttpException;
 
 AppAsset::register($this);
 $asset = AppAsset::register($this);
@@ -23,6 +24,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 <html lang="<?= Yii::$app->language ?>" class="h-100">
 <head>
     <title><?= Html::encode($this->title) ?></title>
+    <link rel="shortcut icon" href="/web/img/icon.png" type="image/png">
     <?php $this->head() ?>
 </head>
 <body class="d-flex flex-column h-100">
@@ -69,6 +71,13 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                 <?= Html::button(Yii::t('labels', 'Войти'), ['value' => Url::to(['site/login', 'id'=>'login-form']), 'title' => Yii::t('labels', 'Войти'), 'class' => 'showModalButton btn navbar-brand']); ?>
             <?php else: ?>
                 <span><?= Yii::$app->user->identity->username ?></span>
+            <?php if(!\Yii::$app->user->can('viewAdminPage')): ?>
+                :(
+            <?php else: ?>
+                <a class="navbar-brand" href="<?= Url::to(['site/admin'])?>">
+                    <?= Yii::t('labels', 'Управление')?>
+                </a>
+                <?php endif; ?>
                 <a class="navbar-brand" href="<?= Url::to(['site/logout'])?>">
                     <?= Yii::t('labels', 'Выйти')?>
                 </a>
