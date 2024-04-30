@@ -78,6 +78,12 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                     <?= Yii::t('labels', 'Управление')?>
                 </a>
                 <?php endif; ?>
+
+                <?php if(\Yii::$app->user->can('changeRoles')): ?>
+                    <a class="navbar-brand" href="<?= Url::to(['users/index'])?>">
+                        <?= Yii::t('labels', 'Users')?>
+                    </a>
+                <?php endif; ?>
                 <a class="navbar-brand" href="<?= Url::to(['site/logout'])?>">
                     <?= Yii::t('labels', 'Выйти')?>
                 </a>

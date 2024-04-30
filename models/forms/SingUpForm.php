@@ -38,10 +38,11 @@ class SingUpForm extends Model
         $user->setPassword($this->password);
         $user->generateAuthKey();
         $user->create_at = date('Y-m-d H:i:s');
+        $user->role = 'user';
 
-        $auth = Yii::$app->authManager;
-        $clientRole = $auth->getRole('client');
-        $auth->assign($clientRole, $user->getId());
+//        $auth = Yii::$app->authManager;
+//        $clientRole = $auth->getRole('client');
+//        $auth->assign($clientRole, $user->getId());
 
         return $user->save() ? $user : null;
     }
