@@ -16,6 +16,7 @@ use yii\web\IdentityInterface;
  * @property string $password
  * @property string $create_at
  * @property string $auth_key
+ * @property string $role
  */
 class Users extends \yii\db\ActiveRecord implements IdentityInterface
 {
@@ -33,9 +34,9 @@ class Users extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules(): array
     {
         return [
-            [['username', 'email', 'password', 'create_at', 'auth_key'], 'required'],
+            [['username', 'email', 'password', 'create_at', 'auth_key', 'role'], 'required'],
             [['create_at'], 'safe'],
-            [['username', 'email', 'password', 'auth_key'], 'string', 'max' => 255],
+            [['username', 'email', 'password', 'auth_key', "role"], 'string', 'max' => 255],
         ];
     }
 
